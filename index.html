@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Especial</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('https://i.imgur.com/63n45Ti.jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            margin: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        #yesButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #yesButton:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+        #noButton {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+        @keyframes move {
+            0% { top: 10%; left: 10%; }
+            25% { top: 10%; left: 80%; }
+            50% { top: 80%; left: 80%; }
+            75% { top: 80%; left: 10%; }
+            100% { top: 10%; left: 10%; }
+        }
+        #noButton:hover {
+            animation: move 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bi, vamos sair hoje?</h1>
+        <button id="yesButton">Sim</button>
+        <button id="noButton">Não</button>
+    </div>
+
+    <script>
+        // Função para abrir uma imagem ao clicar no botão "Sim"
+        document.getElementById('yesButton').addEventListener('click', () => {
+            // URL da imagem que você quer abrir
+            const imageUrl = 'https://i.gifer.com/5USN.mp4';
+            // Abrir a imagem em uma nova aba
+            window.open(imageUrl, '_blank');
+        });
+
+        // Função para fazer o botão "Não" flutuar pela tela
+        const noButton = document.getElementById('noButton');
+        noButton.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noButton.clientWidth);
+            const y = Math.random() * (window.innerHeight - noButton.clientHeight);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        });
+    </script>
+</body>
+</html>
